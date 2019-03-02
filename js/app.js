@@ -51,9 +51,10 @@ function runGame () {
     var randomNum = Math.floor(Math.random() * 37);
     result.innerHTML = randomNum;
 
-    if (i % 2 === 0) {
+    if (randomNum % 2 === 0) {
         resultsBox.style.backgroundColor = 'black';
     } else {
+        console.log('odd');
         resultsBox.style.backgroundColor = 'red';
     }
  }

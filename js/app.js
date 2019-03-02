@@ -35,7 +35,7 @@ for (var i = 0; i < 37; i++) {
 }
 
 
-spin.addEventListener('click', runGame());
+spin.addEventListener('click', runGame);
 
 function runGame () {
     var zeroBox = document.getElementsByClassName('zeroNumber');
@@ -43,12 +43,19 @@ function runGame () {
     var oddBox = document.getElementsByClassName('oddNumber');
 
     activateSpin(zeroBox[0]);
-
     for (var i = 0; i < 18; i++) {
         activateSpin(evenBox[i]);
         activateSpin(oddBox[i]);
     }
 
+    var randomNum = Math.floor(Math.random() * 37);
+    result.innerHTML = randomNum;
+
+    if (i % 2 === 0) {
+        resultsBox.style.backgroundColor = 'black';
+    } else {
+        resultsBox.style.backgroundColor = 'red';
+    }
  }
 
 

@@ -13,4 +13,48 @@ A random number will be generated every 5 seconds.*/
 // 1) Add some additional styling to your application.
 // 2) Create on and off buttons that will start and stop your application.
 
+var options = [];
 
+for (var i = 0; i < 37; i++) {
+    options.push(i);
+
+    var numberBox = document.createElement('div');
+
+    if (i === 0) {
+        numberBox.className = 'zeroNumber';
+    }
+    else if (i % 2 === 0 && i != 0) {
+        numberBox.className = 'evenNumber';
+    } else {
+        numberBox.className = 'oddNumber'
+    }
+
+    //numberBox.className = 'number';
+    numberBox.innerHTML = i;
+    roulette.appendChild(numberBox);
+}
+
+
+spin.addEventListener('click', runGame());
+
+function runGame () {
+    var zeroBox = document.getElementsByClassName('zeroNumber');
+    var evenBox = document.getElementsByClassName('evenNumber');
+    var oddBox = document.getElementsByClassName('oddNumber');
+
+    activateSpin(zeroBox[0]);
+
+    for (var i = 0; i < 18; i++) {
+        activateSpin(evenBox[i]);
+        activateSpin(oddBox[i]);
+    }
+
+ }
+
+
+ function activateSpin(box) {
+    box.style.animationName = 'spin';
+    box.style.animationDuration = '1000ms';
+    box.style.animationIterationCount = '1';
+    box.style.animationTimingFunction = 'linear';
+ }
